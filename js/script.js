@@ -57,7 +57,9 @@ function renderGoals() {
     return;
   }
   state.goals.forEach(g => {
-    const done = computeGoalProgress(g).percent;
+    const info = computeGoalProgress(g);
+    const done = info.percent;
+    g.progress = info.total;
     const li = document.createElement('li');
     li.className = 'list-group-item d-flex align-items-center justify-content-between';
     li.innerHTML = `<div>
