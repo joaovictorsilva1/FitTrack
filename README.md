@@ -3,4 +3,4 @@ FitTrack is a fitness tracking web application designed to help users set goals,
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
 ## Technologies: 
-HTML5, CSS3, JavaScript e Bootstrap
+HTML5, CSS3, JavaScript,Chart.js e Bootstrap

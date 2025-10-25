@@ -1,5 +1,43 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* style.css */
+:root {
+  --primary: #0d6efd;
+  --muted: #6c757d;
+}
+
+body {
+  background: linear-gradient(180deg, #f8fafc, white);
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(90deg, rgba(13,110,253,0.08), transparent);
+  border-radius: 12px;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.activity-badge {
+  font-size: .8rem;
+}
+
+.progress-small {
+  height: 10px;
+  border-radius: 10px;
+}
+
+.small-muted {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.goals-list li {
+  cursor: pointer;
+}
+
+@media (max-width:575px) {
+  .flex-md-row {
+    flex-direction: column !important;
+  }
 }

@@ -1,11 +1,140 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitTrack</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitTrack </title>
+  <!-- Favicon padrão -->
+  <link rel="icon" href="logo1.ico" type="image/x-icon">
+  <!-- Bootstrap local -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link href="/css/style.css" rel="stylesheet">
+  <!-- Chart.js local -->
+  <script src="Chart.js-4.5.1/dist/chart.min.js"></script>
 </head>
 <body>
-    
+  <div class="container py-4">
+    <header class="d-flex align-items-center justify-content-between mb-4">
+      <h1 class="h4 mb-0">FitTrack</h1>
+      <div class="small-muted">Acompanhe cada passo, supere cada meta.</div>
+    </header>
+
+    <section class="hero p-3 mb-4 d-flex align-items-center gap-3">
+      <div>
+        <h2 class="h5 mb-1">Acompanhe seus treinos e metas</h2>
+        <p class="mb-0 small-muted">Defina metas, registre atividades e visualize seu progresso ao longo do tempo.</p>
+      </div>
+      <div class="ms-auto">
+        <button id="btnClearAll" class="btn btn-outline-danger btn-sm">Limpar dados (local)</button>
+      </div>
+    </section>
+
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="card p-3 mb-3">
+          <h3 class="h6">Nova Meta</h3>
+          <form id="formGoal">
+            <div class="mb-2">
+              <label class="form-label small-muted">Título</label>
+              <input id="goalTitle" class="form-control" placeholder="Ex: Correr 50 km em 30 dias" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small-muted">Meta (quantidade)</label>
+              <input id="goalTarget" type="number" min="1" class="form-control" placeholder="Ex: 50" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small-muted">Unidade</label>
+              <input id="goalUnit" class="form-control" placeholder="Ex: km, min, rep" value="km">
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary btn-sm">Adicionar Meta</button>
+              <button id="btnLoadSample" type="button" class="btn btn-outline-secondary btn-sm">Exemplo</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card p-3 mb-3">
+          <h3 class="h6">Registrar Atividade</h3>
+          <form id="formActivity">
+            <div class="mb-2">
+              <label class="form-label small-muted">Tipo</label>
+              <input id="activityType" class="form-control" placeholder="Ex: Corrida, Musculação" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small-muted">Quantidade</label>
+              <input id="activityAmount" type="number" min="0" step="any" class="form-control" placeholder="Ex: 5" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small-muted">Unidade</label>
+              <input id="activityUnit" class="form-control" placeholder="km, min, rep" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small-muted">Data</label>
+              <input id="activityDate" type="date" class="form-control" value="">
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-success btn-sm">Registrar</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card p-3">
+          <h3 class="h6">Metas Ativas</h3>
+          <ul id="goalsList" class="list-group goals-list mt-2"></ul>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card p-3 mb-3">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <h3 class="h6 mb-0">Resumo</h3>
+            <div class="small-muted">Atividades: <span id="summaryCount">0</span></div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="small-muted">Progresso por meta</div>
+              <div id="progressArea" class="mt-2"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="small-muted">Últimas atividades</div>
+              <ul id="recentActivities" class="list-group mt-2"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-3 mb-3">
+          <h3 class="h6">Gráfico de Atividades</h3>
+          <canvas id="chartActivities" height="120"></canvas>
+        </div>
+
+        <div class="card p-3">
+          <h3 class="h6">Registro completo</h3>
+          <div class="table-responsive">
+            <table class="table table-sm" id="activitiesTable">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Quantidade</th>
+                  <th>Unidade</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-4 small-muted text-center">© 2025 FitTrack. Todos os direitos reservados.</footer>
+  </div>
+
+  <!-- Script principal -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="script.js"></script>
+ 
 </body>
 </html>
